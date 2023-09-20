@@ -393,7 +393,7 @@ Error: `Killed` or `Out of Memory` on compute node
 Error: `Disk quota exceeded`
 <br>Symptom: VS code fails to connect to login node
 <br>Cause: Each home directory has a quota of disk storage space (~50 GB) and you are above it.
-<br>Solution: You need to move or delete some files. If you are working on a project with a `/net/projects/` directory, move any data files or checkpoints into that directory (and update your code accordingly!). To check you disk usage, run `du -sh ~`
+<br>Solution: You need to move or delete some files on your home directory. If you are working on a project with a `/net/projects/` directory, move any data files or checkpoints into that directory (and update your code accordingly!). To check you disk usage, run `du -sh ~`. Feel free to move some data to `/net/scratch` for temporary storage. Please note that this directory will be cleaned around every two months.  
 
 Error: `git@github.com: Permission denied (publickey). fatal: Could not read from remote repository.`
 <br>Cause: GitHub can not access a private key that matches the public key stored on GitHub.
