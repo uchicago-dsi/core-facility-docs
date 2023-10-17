@@ -2,7 +2,9 @@ We can't use Docker on the DSI Cluster since Docker requires root access and we 
 
 [Podman](https://podman.io/) is an open source Docker alternative. Podman commands follow the same syntax as Docker commands. All of your favorites like `docker build`, `docker run`, etc. work in Podman — just change the syntax to `podman build`, `podman run`, etc.
 
-One challenge you may encounter while trying to use images on the cluster is disk space limitations while building the image. Even if your image is not very large, lots of temporary files are stored while building an image. You can probably change the storage location of the temporary files during the build process using `export TMPDIR="my/new/tmp"` from the default `/var/tmp`. The `/net/projects` folder allows for much more file storage, so it may make sense to create a temporary directory in that folder associated with your project in order to build an image. (Note: I (Todd) haven't tried doing this yet.)
+One challenge you may encounter while trying to use images on the cluster is disk space limitations while building the image. Even if your image is not very large, lots of temporary files are stored while building an image. 
+
+You can probably change the storage location of the temporary files during the build process using `export TMPDIR="my/new/tmp"` from the default `/var/tmp`. The `/net/projects` folder allows for much more file storage, so it may make sense to create a temporary directory in that folder associated with your project in order to build an image. (Note: I (Todd) have not been able to make this work yet due to permissions issues while building the image.)
 
 You can also download a Docker image to the cluster and run the image using Podman.
 
