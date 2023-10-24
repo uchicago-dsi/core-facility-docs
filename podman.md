@@ -1,3 +1,4 @@
+# Podman
 We can't use Docker on the DSI Cluster since Docker requires root access and we don't have root permissions when using the Cluster.
 
 [Podman](https://podman.io/) is an open source Docker alternative. Podman commands follow the same syntax as Docker commands. All of your favorites like `docker build`, `docker run`, etc. work in Podman — just change the syntax to `podman build`, `podman run`, etc.
@@ -6,7 +7,9 @@ One challenge you may encounter while trying to use images on the cluster is dis
 
 You can probably change the storage location of the temporary files during the build process using `export TMPDIR="my/new/tmp"` from the default `/var/tmp`. The `/net/projects` folder allows for much more file storage, so it may make sense to create a temporary directory in that folder associated with your project in order to build an image. (Note: I (Todd) have not been able to make this work yet due to permissions issues while building the image.)
 
-You can also download a Docker image to the cluster and run the image using Podman.
+### Uploading a Local Docker Image to the Cluster
+
+You can also upload a Docker image to the cluster and run the image using Podman.
 
 If you have an image built locally that you would like to put on the cluster, you can use Docker hub to do this.
 
@@ -26,6 +29,8 @@ Since we have tagged the image, we can now run the `docker push` command, which 
 `podman run ...`
 
 
-Note: Be aware of potential conflicts with processor architecture and Docker containers. If your image is built for ARM and you are using an AMD machine, you may run into problems.
+### Additional Notes
+- Be aware of potential conflicts with processor architecture and Docker containers. If your image is built for ARM and you are using an AMD machine, you may run into problems.
+- You will probably get a bunch of plugin warnings when using Podman on the cluster: `WARN[0000] Error validating CNI config file`. You can avoid these warnings by renaming your `~/.config/cni/net.d/87-podman.conflist` file to something like `/.config/cni/net.d/87-podman.conflist.old`. The CNI (Container Network Interface) plugins are only necessary if you want your container to be able to communicate with other containers or the outside world.
 
-Last update: October 2023
+Last updated: October 2023
