@@ -1,0 +1,5 @@
+*/__pycache/*
+.env
+*/data/*
+.DS_Store
+.ipynb_checkpoints/*
