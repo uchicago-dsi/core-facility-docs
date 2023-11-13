@@ -1,7 +1,7 @@
 import requests
 import os
 
-# from dotenv import load_dotenv
+# from dotenv import load_dotenv  # don't do this in Docker
 
 BASE_URL = "https://api.mapbox.com/geocoding/v5/mapbox.places/"
 
@@ -25,7 +25,7 @@ def geocode_address(
         A tuple of latitude and longitude. These are returned as floats. For
         example:
         (-41.8781, 87.6298)."""
-    # load_dotenv()
+    # load_dotenv()  # don't do this in a Docker container
     url = (
         BASE_URL
         + street
