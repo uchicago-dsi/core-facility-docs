@@ -1,3 +1,5 @@
+!!! THIS DOCUMENT HAS BEEN MOVED TO [HERE](https://github.com/dsi-clinic/the-clinic/blob/main/tutorials/slurm.md). This version will be deleted.
+
 # Slurm and Computing Clusters
 
 ## Using this Document
